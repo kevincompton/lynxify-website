@@ -10,7 +10,7 @@ body {
   flex-direction: column;
   padding: 1rem;
   font-family: "Poppins", sans-serif;
-  background-color: black;
+  background-color: #1E1E1E;
   color: white;
   text-align: center;
 }
@@ -20,7 +20,84 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  font-size: 1.2rem;
+}
+
+h1 {
+  font-size: 3rem;
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+
+h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1rem;
+}
+
+h3 {
+  font-size: 1.25rem;
+  margin-bottom: 1rem;
+}
+
+.section p {
+  margin-bottom: 2rem;
+  font-family: "Inria Serif";
+  font-style: italic;
+  line-height: 1.5;
+}
+
+.slogan {
+  font-family: "Inria Serif";
+  font-size: 2rem;
+}
+
+.section {
+  display: flex;
+  flex-direction: row;
+  padding-left: 10rem;
+}
+
+.section img {
+  width: 50%;
+}
+
+.section-copy {
+  text-align: left;
+  width: 50%;
+  padding-top: 6rem;
+}
+
+.hero {
+  color: #0159E0;
+  font-weight: bold;
   font-size: 5vw;
+}
+
+.mvp-section {
+  padding: 0 10rem 2rem 10rem;
+  p {
+    font-family: "Inria Serif";
+    font-style: italic;
+    margin-bottom: 2rem;
+  }
+  padding-bottom: 2rem;
+  img {
+    margin-bottom: 2rem;
+  }
+}
+
+.mission-section {
+  padding: 15rem 0;
+  font-size: 2rem;
+  font-family: "Inria Serif";
+  font-style: italic;
+  strong {
+    font-style: normal;
+  }
+}
+
+.roadmap-section {
+  padding-bottom: 2rem;
 }
 
 @media only screen and (max-width: 600px) {
