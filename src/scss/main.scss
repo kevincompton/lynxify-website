@@ -145,6 +145,12 @@ footer {
   .team-section .row {
     flex-direction: column;
   }
+  .hero {
+    font-size: 4rem;
+  }
+  .mvp-section {
+    padding: 0 4rem;
+  }
 }
 
 @media only screen and (max-width: 1090px) and (min-width: 981px) {
