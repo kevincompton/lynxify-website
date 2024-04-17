@@ -23,6 +23,10 @@ main {
   font-size: 1.2rem;
 }
 
+img.hero {
+  object-fit: contain;
+}
+
 h1 {
   font-size: 3rem;
   margin-bottom: 2rem;
@@ -52,17 +56,16 @@ p { line-height: 1.5; }
   font-size: 2rem;
 }
 
-.section {
+.hero-section {
   display: flex;
   flex-direction: row;
   padding-left: 10rem;
+  img {
+    width: 50%;
+  }
 }
 
-.section img {
-  width: 50%;
-}
-
-.section-copy {
+.hero-section-copy {
   text-align: left;
   width: 50%;
   padding-top: 6rem;
@@ -101,8 +104,51 @@ p { line-height: 1.5; }
   padding-bottom: 2rem;
 }
 
-@media only screen and (max-width: 600px) {
-  main {
-    font-size: 10vw;
+.team-section {
+  .row {
+    display: flex;
+    flex-direction: row;
+  }
+  .item {
+    padding: 0 2rem;
+    text-align: left;
+  }
+  p {
+    font-family: "Inria Serif";
+    font-size: 1rem;
+    margin: 2rem 0;
+  }
+  .avatar {
+    width: 92px;
+    height: 92px;
+    background: black;
+    border-radius: 20px;
+    margin-bottom: 2rem;
+  }
+}
+
+footer {
+  padding: 1rem 0;
+}
+
+@media only screen and (max-width: 980px) {
+  .hero-section {
+    flex-direction: column;
+    padding: 0 3rem;
+    img {
+      width: auto;
+    }
+  }
+  .hero-section-copy {
+    width: auto;
+  }
+  .team-section .row {
+    flex-direction: column;
+  }
+}
+
+@media only screen and (max-width: 1090px) and (min-width: 981px) {
+  .hero-section {
+    padding-left: 5rem;
   }
 }
