@@ -19,47 +19,104 @@
       rel="stylesheet"
       crossorigin="anonymous"
     >
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
     <link rel="stylesheet" href="./scss/main.scss" />
   </head>
   <body>
+    <header>
+      <div class="header-left">
+        <div class="txt hero">Lynxify</div>
+        <span class="slogan">Smart Trading, Smarter Gains</span>
+      </div>
+      <nav class="header-nav">
+        <a href="#early-access">Early Access</a>
+        <a href="#token">Token</a>
+        <a href="#roadmap">Roadmap</a>
+        <a href="#team">Team</a>
+      </nav>
+      <a href="https://app.lynxify.xyz" target="_blank" rel="noopener noreferrer" class="launch-btn">Launch App</a>
+    </header>
     <main>
-      <div class="txt hero">
-        Lynxify
-      </div>
-      <span class="slogan">Hedera ⮂ Portal to the rest of Web3</span>
-      <div class="hero-section">
+      <div class="hero-section" id="features">
         <div class="hero-section-copy">
-          <h2>Swap between Hedera and L2 networks</h2>
-          <p>Leveraging the Hashport API, moving your tokens into Hedera has never been so easy.</p>
-          <h2>Negligibly Low Fees</h2>
-          <p>Enjoy the low fees and transaction speed of the Hedera network with your erc20 assets.</p>
-          <h2>Direct Wallet Staking & Trading</h2>
-          <p>Keep your coins secure in your own wallet as you stake or trade.</p>
+          <p>Unlock the power of automated trading with Lynxify's advanced DEX. Set your strategies, trade effortlessly, and maximize your crypto potential.</p>
+          
+          <h3>Smart Trading Tools</h3>
+          <ul>
+            <li>Automated Stop-Loss & Take-Profit</li>
+            <li>Limit Orders at Your Price</li>
+            <li>Real-Time Price Alerts</li>
+          </ul>
+
+          <h3>Coming Soon</h3>
+          <ul>
+            <li>Dollar-Cost Averaging Automation</li>
+            <li>Market Depth Visualization</li>
+            <li>Price Target Notifications</li>
+            <li>AI Trader Tooling</li>
+          </ul>
         </div>
-        <img src="/public/pampas-screens.png" />
+        <video autoplay loop muted playsinline>
+          <source src="/public/demo.mp4" type="video/mp4">
+        </video>
       </div>
-      
-      <div class="mvp-section">
-        <h1>MVP</h1>
-        <h2>Swap Between Chains</h2>
-        <p>Web App to bridge Hedera and Eth networks with a user-friendly interface and easy wallet creation.</p>
-        <img width="624px" src="/public/hashport.png" />
-        <img src="/public/single-side-staking.png" />
-        <h2>Single-Side Staking</h2>
-        <p>Earn rewards without the assets leaving your wallet, or the need for a pairing token. Single-Side Staking allows for withdrawals at any time.</p>
+      <hr />
+      <div class="mvp-section" id="early-access">
+        <h1>Early Access</h1>
+        <h2>Secure Your Priority Access</h2>
+        <p>Get exclusive early access to Lynxify's dApp and future features through our NFT-based priority system. Member NFT's also grant you first access to our upcoming token & governance offering. The NFT is a limited run of 100, so secure your spot today!</p>
+        <button>Get Early Access</button>
       </div>
+      <hr />
+      <div class="token-section" id="token">
+        <h1>Coming Soon: LXY</h1>
+        <h2>The Future of Tokenized Indices</h2>
+        
+        <div class="token-description">
+          <p>LXY will represent a revolutionary approach to portfolio management - a single token providing exposure to a carefully curated basket of digital assets. Through decentralized governance and automated rebalancing, LXY aims to simplify portfolio diversification while maintaining complete transparency and user control.</p>
+          
+          <div class="features-row">
+            <div class="column">
+              <h3>Key Features</h3>
+              <ul>
+                <li>Automated Portfolio Rebalancing</li>
+                <li>Decentralized Governance</li>
+                <li>Transparent Asset Management</li>
+                <li>Community-Driven Development</li>
+              </ul>
+            </div>
+            
+            <div class="column">
+              <h3>Community Governed</h3>
+              <ul>
+                <li>Help shape the future of decentralized indices</li>
+                <li>Vote on index composition changes</li>
+                <li>Participate in rebalancing schedules</li>
+                <li>Guide protocol improvements</li>
+              </ul>
+            </div>
+          </div>
 
+          <div class="disclaimer">
+            <p>LXY is designed as a utility token for index management and DAO governance. It is not intended as an investment product. The token and associated protocol will be governed by the community through the LXY DAO. Participation may be restricted in certain jurisdictions.</p>
+          </div>
+        </div>
+      </div>
+      <hr />
       <div class="mission-section">
-        <p><strong>Mission:</strong> To provide liquidity for crypto
-          assets without fuss & fees</p>
+        <p><strong>Mission:</strong> To provide smarter tools for crypto assets without fuss & fees</p>
       </div>
-
-      <div class="roadmap-section">
+      <hr />
+      <div class="roadmap-section" id="roadmap">
         <h1>Roadmap</h1>
         <img src="/public/roadmap.png" />
       </div>
-
-      <div class="team-section">
+      <hr />
+      <div class="team-section" id="team">
         <h1>The Team</h1>
         <div class="row">
           <div class="item">
@@ -85,7 +142,7 @@
           </div>
         </div>
       </div>
-      
+      <hr />
     </main>
     <footer>
       Made With ❤️ by
