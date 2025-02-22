@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "reset": "rimraf dist && rimraf .cache",
-    "start": "rimraf dist && parcel serve src/*.html",
-    "build": "rimraf dist && parcel build src/*.html --public-url ./"
+    "start": "rimraf dist && parcel serve \"src/**/*.html\"",
+    "build": "rimraf dist && parcel build \"src/**/*.html\" --public-url ./"
   },
   "author": "Naman Gupta",
   "license": "ISC",
