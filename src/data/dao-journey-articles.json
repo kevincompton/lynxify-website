@@ -1,0 +1,11 @@
+[
+  {
+    "id": "hederacon-dao-dashboard",
+    "title": "HederaCon: An Exploration of AI Re-Balancing with HCS",
+    "date": "2025-03-02",
+    "author": "Kevin Compton",
+    "summary": "When designing the governance model for the LYNX DAO, we wanted to address the common problem of low participation by creating automated tools for our community.",
+    "content": "<p>An active and functioning DAO is critical to the operation of any tokenized index. For this reason, LYNX is different from any similar token indeces. Fow one, we've leveraged the advanced tools on the Hedera blockchain to level up automation and recommendation for our commmunity. Our reasoning is that rather than focusing on only increasing participation, we also need to make that participation painless.</p>",
+    "tags": ["governance", "HCS", "AI", "Re-Balancing", "HederaCon"]
+  }
+] 

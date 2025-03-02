@@ -1,0 +1,414 @@
+// DAO Journey specific styles
+
+.dao-journey-header {
+  width: 100%;
+  background-color: rgba(1, 89, 224, 0.1);
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%230159e0' fill-opacity='0.2'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  padding: 4rem 2rem;
+  text-align: center;
+  margin-top: 120px;
+  margin-bottom: 3rem;
+  border-top: 1px solid #0159E0;
+  border-bottom: 1px solid #0159E0;
+  
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    color: #0159E0;
+  }
+  
+  .intro {
+    font-family: "Inria Serif";
+    font-style: italic;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+    font-size: 1.1rem;
+  }
+}
+
+// New two-column layout container
+.dao-journey-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 2rem;
+  display: flex;
+  gap: 3rem;
+}
+
+// Sidebar styles
+.dao-roadmap {
+  width: 300px;
+  flex-shrink: 0;
+  position: sticky;
+  top: 140px; // Match the header height
+  align-self: flex-start;
+  
+  h2 {
+    color: #0159E0;
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+  }
+  
+  .roadmap-timeline {
+    position: relative;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 15px;
+      width: 2px;
+      background: rgba(1, 89, 224, 0.3);
+    }
+  }
+  
+  .roadmap-item {
+    position: relative;
+    padding-left: 40px;
+    padding-bottom: 2rem;
+    
+    &:before {
+      content: '';
+      position: absolute;
+      left: 8px;
+      top: 0;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #000;
+      border: 2px solid rgba(1, 89, 224, 0.5);
+      z-index: 1;
+    }
+    
+    &.completed:before {
+      background: #0159E0;
+    }
+    
+    &.active:before {
+      background: #0159E0;
+      box-shadow: 0 0 0 4px rgba(1, 89, 224, 0.2);
+    }
+    
+    &:last-child {
+      padding-bottom: 0;
+    }
+  }
+  
+  .roadmap-date {
+    font-family: "VT323";
+    font-size: 1.1rem;
+    color: #0159E0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .roadmap-milestone {
+    h3 {
+      font-size: 1rem;
+      margin-bottom: 0.5rem;
+    }
+    
+    p {
+      font-size: 0.9rem;
+      opacity: 0.8;
+      line-height: 1.4;
+    }
+  }
+}
+
+// Main content area
+.dao-journey-section {
+  flex: 1;
+  min-width: 0; // Prevent flex item from overflowing
+}
+
+.articles-container {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+  
+  .loading, .error {
+    text-align: center;
+    padding: 2rem;
+    font-family: "VT323";
+    font-size: 1.5rem;
+  }
+  
+  .error {
+    color: #ff4d4d;
+  }
+}
+
+.article {
+  background: rgba(1, 89, 224, 0.05);
+  border-radius: 8px;
+  padding: 2rem;
+  transition: all 0.2s ease;
+  border: 1px solid transparent;
+  text-align: left;
+  
+  &:hover {
+    border-color: rgba(1, 89, 224, 0.2);
+    box-shadow: 0 5px 15px rgba(1, 89, 224, 0.1);
+  }
+  
+  h2 {
+    color: #0159E0;
+    margin-bottom: 0.5rem;
+  }
+  
+  .article-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    
+    .date, .author {
+      font-family: "VT323";
+    }
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+    
+    .tag {
+      background: rgba(1, 89, 224, 0.2);
+      color: #0159E0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 1rem;
+      font-family: "VT323";
+    }
+  }
+  
+  .summary {
+    font-family: "Inria Serif";
+    font-style: italic;
+    margin-bottom: 1.5rem;
+    text-align: left;
+  }
+  
+  .content {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    text-align: left;
+    
+    p {
+      margin-bottom: 1rem;
+    }
+    
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+        
+        &:before {
+          content: "•";
+          color: #0159E0;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+    
+    &.collapsed {
+      max-height: 0;
+      overflow: hidden;
+      margin-bottom: 0;
+    }
+  }
+  
+  button.read-more {
+    background: transparent;
+    color: #0159E0;
+    border: 1px solid #0159E0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "VT323";
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    
+    &:hover {
+      background: rgba(1, 89, 224, 0.1);
+    }
+  }
+}
+
+// Add active state for the DAO Journey nav link
+.header-nav a.active {
+  color: #0159E0;
+}
+
+// Responsive adjustments
+@media only screen and (max-width: 980px) {
+  .dao-journey-header {
+    margin-top: 180px;
+    padding: 3rem 1rem;
+  }
+  
+  .dao-journey-content {
+    flex-direction: column;
+    padding: 0 1rem;
+  }
+  
+  .dao-roadmap {
+    width: 100%;
+    position: static;
+    margin-bottom: 3rem;
+  }
+  
+  .dao-journey-section {
+    padding: 0;
+  }
+  
+  .article {
+    padding: 1.5rem;
+    
+    .article-meta {
+      flex-direction: column;
+      gap: 0.25rem;
+    }
+  }
+}
+
+// Add styles for the article detail page
+.article-page {
+  max-width: 900px;
+}
+
+.article-full {
+  background: rgba(1, 89, 224, 0.05);
+  border-radius: 8px;
+  padding: 3rem;
+  text-align: left;
+  
+  h1 {
+    color: #0159E0;
+    font-size: 2rem;
+    margin-bottom: 1rem;
+  }
+  
+  .article-meta {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 1.5rem;
+    font-size: 0.9rem;
+    opacity: 0.8;
+    
+    .date, .author {
+      font-family: "VT323";
+    }
+  }
+  
+  .tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+    
+    .tag {
+      background: rgba(1, 89, 224, 0.2);
+      color: #0159E0;
+      padding: 0.25rem 0.75rem;
+      border-radius: 20px;
+      font-size: 0.9rem;
+      font-family: "VT323";
+    }
+  }
+  
+  .summary {
+    font-family: "Inria Serif";
+    font-style: italic;
+    margin-bottom: 2rem;
+    font-size: 1.2rem;
+  }
+  
+  .content {
+    font-family: "Poppins", sans-serif;
+    line-height: 1.6;
+    
+    p {
+      margin-bottom: 1.5rem;
+    }
+    
+    ul {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 1.5rem;
+      
+      li {
+        margin-bottom: 0.5rem;
+        padding-left: 1.5rem;
+        position: relative;
+        
+        &:before {
+          content: "•";
+          color: #0159E0;
+          position: absolute;
+          left: 0;
+        }
+      }
+    }
+  }
+  
+  .back-link {
+    display: inline-block;
+    margin-top: 2rem;
+    color: #0159E0;
+    text-decoration: none;
+    font-family: "VT323";
+    font-size: 1.1rem;
+    transition: opacity 0.2s ease;
+    
+    &:hover {
+      opacity: 0.8;
+    }
+  }
+}
+
+// Update article preview to use a link instead of a button
+.article {
+  // Existing styles remain...
+  
+  .read-more-link {
+    display: inline-block;
+    background: transparent;
+    color: #0159E0;
+    border: 1px solid #0159E0;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    font-family: "VT323";
+    font-size: 1rem;
+    transition: all 0.2s ease;
+    text-decoration: none;
+    
+    &:hover {
+      background: rgba(1, 89, 224, 0.1);
+    }
+  }
+  
+  // Remove the collapsed content styles since we're not using them anymore
+  .content {
+    &.collapsed {
+      display: none;
+    }
+  }
+}
+
+// Responsive adjustments for article page
+@media only screen and (max-width: 980px) {
+  .article-full {
+    padding: 1.5rem;
+  }
+} 

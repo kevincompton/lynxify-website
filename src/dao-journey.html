@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="title" content="Lynxify | DAO Journey">
+    <meta name="description" content="Follow our journey of developing the DAO dashboard for the LYNX token. Learn about our process, challenges, and decisions.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://lynxify.xyz/dao-journey">
+    <meta property="og:title" content="Lynxify | DAO Journey">
+    <meta property="og:description" content="Follow our journey of developing the DAO dashboard for the LYNX token. Learn about our process, challenges, and decisions.">
+    <meta property="og:image" content="https://lynxify.xyz/share-image.png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://lynxify.xyz/dao-journey">
+    <meta property="twitter:title" content="Lynxify | DAO Journey">
+    <meta property="twitter:description" content="Follow our journey of developing the DAO dashboard for the LYNX token. Learn about our process, challenges, and decisions.">
+    <meta property="twitter:image" content="https://lynxify.xyz/share-image.png">
+
+    <title>Lynxify | DAO Journey</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/gh/jgthms/minireset.css@master/minireset.min.css"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link 
+      href="https://fonts.googleapis.com/css2?family=Inria+Serif:ital,wght@0,300;0,400;0,700;1,300;1,400;1,700&display=swap" 
+      rel="stylesheet"
+      crossorigin="anonymous"
+    >
+    <link
+      href="https://fonts.googleapis.com/css2?family=VT323&display=swap"
+      rel="stylesheet"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="./scss/main.scss" />
+    <link rel="stylesheet" href="./scss/dao-journey.scss" />
+    <link rel="apple-touch-icon" sizes="180x180" href="public/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="public/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="public/favicon-16x16.png">
+    <link rel="manifest" href="public/site.webmanifest">
+  </head>
+  <body>
+    <header>
+      <div class="header-left">
+        <div class="txt hero">Lynxify</div>
+        <span class="slogan">Smart Trading, Smarter Gains</span>
+      </div>
+      <nav class="header-nav">
+        <a href="index.html#early-access">Early Access</a>
+        <a href="index.html#token">Token</a>
+        <a href="index.html#roadmap">Roadmap</a>
+        <a href="index.html#team">Team</a>
+        <a href="dao-journey.html" class="active">DAO Journey</a>
+      </nav>
+      <a href="https://app.lynxify.xyz" target="_blank" rel="noopener noreferrer" class="launch-btn">Launch App</a>
+    </header>
+    <main>
+      <div class="dao-journey-header">
+        <h1>DAO Journey</h1>
+        <p class="intro">Follow our journey as we develop the DAO dashboard for the LYNX token. Here we document our process, challenges, and decisions to provide transparency for our community.</p>
+      </div>
+      
+      <div class="dao-journey-content">
+        <aside class="dao-roadmap">
+          <h2>DAO Roadmap</h2>
+          <div class="roadmap-timeline">
+            <div class="roadmap-item completed">
+              <div class="roadmap-date">Q3 2023</div>
+              <div class="roadmap-milestone">
+                <h3>Research & Planning</h3>
+                <p>Governance model research, community surveys, technical architecture planning</p>
+              </div>
+            </div>
+            
+            <div class="roadmap-item completed">
+              <div class="roadmap-date">Q4 2023</div>
+              <div class="roadmap-milestone">
+                <h3>Design & Prototyping</h3>
+                <p>UI/UX design, smart contract development, community feedback sessions</p>
+              </div>
+            </div>
+            
+            <div class="roadmap-item active">
+              <div class="roadmap-date">Q1 2024</div>
+              <div class="roadmap-milestone">
+                <h3>Development</h3>
+                <p>Frontend implementation, smart contract audits, testnet deployment</p>
+              </div>
+            </div>
+            
+            <div class="roadmap-item">
+              <div class="roadmap-date">Q2 2024</div>
+              <div class="roadmap-milestone">
+                <h3>Testing & Refinement</h3>
+                <p>Community beta testing, security audits, UI/UX improvements</p>
+              </div>
+            </div>
+            
+            <div class="roadmap-item">
+              <div class="roadmap-date">Q3 2024</div>
+              <div class="roadmap-milestone">
+                <h3>Launch</h3>
+                <p>Mainnet deployment, governance activation, community onboarding</p>
+              </div>
+            </div>
+          </div>
+        </aside>
+        
+        <div class="dao-journey-section">
+          <div class="articles-container" id="articles-container">
+            <!-- Articles will be loaded here from JSON -->
+            <div class="loading">Loading articles...</div>
+          </div>
+        </div>
+      </div>
+    </main>
+    <footer>
+      Made With ❤️ by
+      <a
+        href="https://0xprimordia.xyz/"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="gradientTextNeonPink"
+        >0xPrimordia</a
+      >
+    </footer>
+    <script src="./js/dao-journey.ts" type="module"></script>
+  </body>
+</html> 
