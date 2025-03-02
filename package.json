@@ -6,7 +6,7 @@
   "scripts": {
     "reset": "rimraf dist && rimraf .cache",
     "start": "rimraf dist && parcel \"src/**/*.html\"",
-    "build": "rimraf dist && parcel build \"src/**/*.html\" --public-url ./"
+    "build": "rimraf dist && parcel build \"src/**/*.html\" --public-url ./ && cp -r static dist/"
   },
   "author": "Naman Gupta",
   "license": "ISC",
