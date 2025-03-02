@@ -24,7 +24,7 @@
         {
           "src": "../public/rebalancing.png",
           "alt": "Index Rebalancing View",
-          "caption": "Interactive view of proposed index rebalancing with using HCS and OpenAI."
+          "caption": "Interactive view of proposed index rebalancing using HCS and OpenAI."
         }
       ]
     },
