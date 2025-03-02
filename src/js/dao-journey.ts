@@ -6,22 +6,76 @@ interface Article {
   summary: string;
   content: string;
   tags: string[];
+  prototype?: Prototype; // Optional prototype section
+  caseStudy?: CaseStudy; // Optional case study section
+}
+
+interface Prototype {
+  title: string;
+  description: string;
+  images: PrototypeImage[];
+}
+
+interface CaseStudy {
+  title: string;
+  content: string;
+  images: CaseStudyImage[];
+}
+
+interface PrototypeImage {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
+interface CaseStudyImage {
+  src: string;
+  alt: string;
+  caption: string;
 }
 
 // Import the JSON file directly
 import articles from '../data/dao-journey-articles.json';
 
+// Import images directly to ensure they're included in the build
+import dashImage from '../public/dash.png';
+import compositionImage from '../public/composition.png';
+import rebalancingImage from '../public/rebalancing.png';
+import daoDiagramImage from '../public/dao-diagram.png';
+// Create a mapping of filenames to their imported URLs
+const imageMap: Record<string, string> = {
+  'dash.png': dashImage,
+  'composition.png': compositionImage,
+  'rebalancing.png': rebalancingImage,
+  'dao-diagram.png': daoDiagramImage
+};
+
 document.addEventListener('DOMContentLoaded', () => {
   try {
+    console.log("Page loaded, URL:", window.location.href);
+    
     // Check if we're on the article detail page
     const urlParams = new URLSearchParams(window.location.search);
     const articleId = urlParams.get('id');
     
-    if (articleId) {
-      // We're on an article detail page
-      displaySingleArticle(articleId);
+    console.log("Article ID from URL:", articleId);
+    console.log("Current page:", window.location.pathname);
+    
+    // Check if we're on the article page
+    if (window.location.pathname.includes('dao-article.html')) {
+      if (articleId) {
+        console.log("Displaying single article:", articleId);
+        displaySingleArticle(articleId);
+      } else {
+        console.error("No article ID provided");
+        const container = document.getElementById('article-container');
+        if (container) {
+          container.innerHTML = '<div class="error">Article ID not found in URL.</div>';
+        }
+      }
     } else {
       // We're on the main listing page
+      console.log("Displaying article list");
       displayArticles(articles);
     }
   } catch (error) {
@@ -76,7 +130,7 @@ function createArticlePreviewElement(article: Article): HTMLElement {
   return articleElement;
 }
 
-function displaySingleArticle(articleId: string): void {
+async function displaySingleArticle(articleId: string): Promise<void> {
   const container = document.getElementById('article-container');
   if (!container) return;
   
@@ -103,6 +157,62 @@ function displaySingleArticle(articleId: string): void {
     `<span class="tag">${tag}</span>`
   ).join('');
   
+  // Create prototype section HTML if it exists
+  let prototypeHtml = '';
+  if (article.prototype) {
+    const imagesHtml = article.prototype.images.map(image => {
+      // Get just the filename from the path
+      const filename = image.src.split('/').pop() || '';
+      // Use the imported image URL from our imageMap
+      const imageUrl = imageMap[filename];
+      
+      return `
+        <div class="prototype-image">
+          <img src="${imageUrl}" alt="${image.alt}">
+          <p class="image-caption">${image.caption}</p>
+        </div>
+      `;
+    }).join('');
+    
+    prototypeHtml = `
+      <div class="prototype-section">
+        <h2>${article.prototype.title}</h2>
+        <p class="prototype-description">${article.prototype.description}</p>
+        <div class="prototype-gallery">
+          ${imagesHtml}
+        </div>
+      </div>
+    `;
+  }
+  
+  // Create case study section HTML if it exists
+  let caseStudyHtml = '';
+  if (article.caseStudy) {
+    const imagesHtml = article.caseStudy.images.map(image => {
+      // Get just the filename from the path
+      const filename = image.src.split('/').pop() || '';
+      // Use the imported image URL from our imageMap
+      const imageUrl = imageMap[filename];
+      
+      return `
+        <div class="case-study-image">
+          <img src="${imageUrl}" alt="${image.alt}">
+          <p class="image-caption">${image.caption}</p>
+        </div>
+      `;
+    }).join('');
+    
+    caseStudyHtml = `
+      <div class="case-study-section">
+        <h2>${article.caseStudy.title}</h2>
+        <div class="case-study-content">${article.caseStudy.content}</div>
+        <div class="case-study-gallery">
+          ${imagesHtml}
+        </div>
+      </div>
+    `;
+  }
+  
   container.innerHTML = `
     <div class="article-full">
       <h1>${article.title}</h1>
@@ -113,6 +223,8 @@ function displaySingleArticle(articleId: string): void {
       <div class="tags">${tagsHtml}</div>
       <p class="summary">${article.summary}</p>
       <div class="content">${article.content}</div>
+      ${prototypeHtml}
+      ${caseStudyHtml}
       <a href="dao-journey.html" class="back-link">← Back to Articles</a>
     </div>
   `;

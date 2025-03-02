@@ -5,7 +5,39 @@
     "date": "2025-03-02",
     "author": "Kevin Compton",
     "summary": "When designing the governance model for the LYNX DAO, we wanted to address the common problem of low participation by creating automated tools for our community.",
-    "content": "<p>An active and functioning DAO is critical to the operation of any tokenized index. For this reason, LYNX is different from any similar token indeces. Fow one, we've leveraged the advanced tools on the Hedera blockchain to level up automation and recommendation for our commmunity. Our reasoning is that rather than focusing on only increasing participation, we also need to make that participation painless.</p>",
-    "tags": ["governance", "HCS", "AI", "Re-Balancing", "HederaCon"]
+    "content": "<p>An active and functioning DAO is critical to the operation of any tokenized index. For this reason, LYNX is different from any similar token indices. For one, we've leveraged the advanced tools on the Hedera blockchain to level up automation and recommendation for our community. Our reasoning is that rather than focusing on only increasing participation, we also need to make that participation painless.</p>",
+    "tags": ["governance", "HCS", "AI", "Re-Balancing", "HederaCon"],
+    "prototype": {
+      "title": "DAO Dashboard Prototype",
+      "description": "Our initial prototype for the LYNX DAO dashboard focused on demonstrating AI integration with HCS in order to provide insights and tools for re-balancing. In addition, we wanted to make the voting process more intuitive and accessible. Rather than the traditional approach of using voting proposals, we wanted to give our members the dials to the contract itself.",
+      "images": [
+        {
+          "src": "../public/dash.png",
+          "alt": "DAO Dashboard Home Screen",
+          "caption": "The main dashboard view showing token holdings, active proposals, and governance statistics."
+        },
+        {
+          "src": "../public/composition.png",
+          "alt": "Voting Interface",
+          "caption": "Composition dashboard with simulation toggles for volatility and liquidity assessment."
+        },
+        {
+          "src": "../public/rebalancing.png",
+          "alt": "Index Rebalancing View",
+          "caption": "Interactive view of proposed index rebalancing with using HCS and OpenAI."
+        }
+      ]
+    },
+    "caseStudy": {
+      "title": "Introducing the LYNX DAO Dashboard",
+      "content": "<p>Based on our learnings from the prototype, we propose a dashboard of dials to determine consensus based on the current settings of the majority of members at the time of execution. This addresses the issue of participation for the most critical decisions by allowing for passive participation. By utilizing Hedera Consensus Service along with scheduled transactions, the user need only apply their dashboard settings before the scheduled execution period. Our focus was on making governance participation not just easier, but more meaningful for token holders by allowing these decisions to automatically execute on the minting contract.</p><p>The final dashboard incorporates real-time data visualization and AI-powered recommendations that help users make informed decisions without requiring deep technical knowledge of the underlying protocols.</p>",
+      "images": [
+        {
+          "src": "../public/dao-diagram.png",
+          "alt": "DAO Diagram",
+          "caption": "Utilizing HCS with long-term scheduled transactions and AI assessment."
+        }
+      ]
+    }
   }
 ] 
