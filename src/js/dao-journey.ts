@@ -8,6 +8,8 @@ interface Article {
   tags: string[];
   prototype?: Prototype; // Optional prototype section
   caseStudy?: CaseStudy; // Optional case study section
+  video?: Video; // Optional video section
+  shareImage?: string; // Optional share image path
 }
 
 interface Prototype {
@@ -34,6 +36,12 @@ interface CaseStudyImage {
   caption: string;
 }
 
+interface Video {
+  src: string;
+  alt: string;
+  caption: string;
+}
+
 // Import the JSON file directly
 import articles from '../data/dao-journey-articles.json';
 
@@ -42,12 +50,19 @@ import dashImage from '../public/dash.png';
 import compositionImage from '../public/composition.png';
 import rebalancingImage from '../public/rebalancing.png';
 import daoDiagramImage from '../public/dao-diagram.png';
+import compositionVideoSrc from '../public/composition-ui.mp4';
+
 // Create a mapping of filenames to their imported URLs
 const imageMap: Record<string, string> = {
   'dash.png': dashImage,
   'composition.png': compositionImage,
   'rebalancing.png': rebalancingImage,
   'dao-diagram.png': daoDiagramImage
+};
+
+// Create a mapping for videos
+const videoMap: Record<string, string> = {
+  'composition-ui.mp4': compositionVideoSrc
 };
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -151,11 +166,33 @@ async function displaySingleArticle(articleId: string): Promise<void> {
     return;
   }
   
+  // Update meta tags dynamically
+  updateMetaTags(article);
+  
   const formattedDate = formatDate(article.date);
   
   const tagsHtml = article.tags.map(tag => 
     `<span class="tag">${tag}</span>`
   ).join('');
+  
+  // Create video section HTML if it exists
+  let videoHtml = '';
+  if (article.video) {
+    // Get just the filename from the path
+    const filename = article.video.src.split('/').pop() || '';
+    // Use the imported video URL from our videoMap
+    const videoUrl = videoMap[filename];
+    
+    videoHtml = `
+      <div class="video-section">
+        <video autoplay loop muted playsinline controls>
+          <source src="${videoUrl}" type="video/mp4">
+          Your browser does not support the video tag.
+        </video>
+        <p class="video-caption">${article.video.caption}</p>
+      </div>
+    `;
+  }
   
   // Create prototype section HTML if it exists
   let prototypeHtml = '';
@@ -223,11 +260,69 @@ async function displaySingleArticle(articleId: string): Promise<void> {
       <div class="tags">${tagsHtml}</div>
       <p class="summary">${article.summary}</p>
       <div class="content">${article.content}</div>
+      ${videoHtml}
       ${prototypeHtml}
       ${caseStudyHtml}
       <a href="dao-journey.html" class="back-link">← Back to Articles</a>
     </div>
   `;
+}
+
+// Add this new function to update meta tags
+function updateMetaTags(article: Article): void {
+  // Update title
+  document.title = `${article.title} | Lynxify`;
+  
+  // Get the current URL with the article ID
+  const articleUrl = `https://lynxify.xyz/dao-article.html?id=${article.id}`;
+  
+  // Update meta tags
+  const metaTags = {
+    'title': `${article.title} | Lynxify`,
+    'description': article.summary,
+    'og:title': `${article.title} | Lynxify`,
+    'og:description': article.summary,
+    'og:url': articleUrl,
+    'twitter:title': article.title,
+    'twitter:description': article.summary,
+    'twitter:url': articleUrl,
+  };
+  
+  // Update share image if provided
+  if (article.shareImage) {
+    // For static URLs that won't be processed by Parcel
+    const shareImageUrl = `https://lynxify.xyz/static/${article.shareImage}`;
+    metaTags['og:image'] = shareImageUrl;
+    metaTags['twitter:image'] = shareImageUrl;
+  }
+  
+  // Update article specific meta tags
+  document.querySelector('meta[property="article:published_time"]')?.setAttribute('content', article.date);
+  document.querySelector('meta[property="article:author"]')?.setAttribute('content', article.author);
+  
+  // Clear existing article tags
+  document.querySelectorAll('meta[property="article:tag"]').forEach(tag => tag.remove());
+  
+  // Add new article tags
+  article.tags.forEach(tag => {
+    const metaTag = document.createElement('meta');
+    metaTag.setAttribute('property', 'article:tag');
+    metaTag.setAttribute('content', tag);
+    document.head.appendChild(metaTag);
+  });
+  
+  // Update other meta tags
+  for (const [key, value] of Object.entries(metaTags)) {
+    // Handle both name and property attributes
+    const selector = key.startsWith('og:') || key.startsWith('twitter:') || key === 'article:published_time' 
+      ? `meta[property="${key}"]` 
+      : `meta[name="${key}"]`;
+    
+    const element = document.querySelector(selector);
+    if (element) {
+      element.setAttribute('content', value);
+    }
+  }
 }
 
 function formatDate(dateString: string): string {

@@ -527,4 +527,39 @@
       }
     }
   }
+}
+
+// Add styles for the video section
+.video-section {
+  margin-top: 3rem;
+  padding-top: 2rem;
+  border-top: 1px solid rgba(1, 89, 224, 0.2);
+  
+  video {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    display: block;
+    margin: 0 auto 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+  }
+  
+  .video-caption {
+    text-align: center;
+    font-size: 0.9rem;
+    color: rgba(255, 255, 255, 0.8);
+    max-width: 800px;
+    margin: 0 auto;
+    font-style: italic;
+  }
+}
+
+// Responsive adjustments for the video
+@media only screen and (max-width: 980px) {
+  .video-section {
+    video {
+      width: 100%;
+    }
+  }
 } 

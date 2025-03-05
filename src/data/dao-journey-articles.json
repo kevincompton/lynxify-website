@@ -7,6 +7,7 @@
     "summary": "When designing the governance model for the LYNX DAO, we wanted to address the common problem of low participation by creating automated tools for our community.",
     "content": "<p>An active and functioning DAO is critical to the operation of any tokenized index. For this reason, LYNX is different from any similar token indices. For one, we've leveraged the advanced tools on the Hedera blockchain to level up automation and recommendation for our community. Our reasoning is that rather than focusing on only increasing participation, we also need to make that participation painless.</p>",
     "tags": ["governance", "HCS", "AI", "Re-Balancing", "HederaCon"],
+    "shareImage": "social-share-dao.png",
     "prototype": {
       "title": "DAO Dashboard Prototype",
       "description": "Our initial prototype for the LYNX DAO dashboard focused on demonstrating AI integration with HCS in order to provide insights and tools for re-balancing. In addition, we wanted to make the voting process more intuitive and accessible. Rather than the traditional approach of using voting proposals, we wanted to give our members the dials to the contract itself.",
@@ -38,6 +39,21 @@
           "caption": "Utilizing HCS with long-term scheduled transactions and AI assessment."
         }
       ]
+    }
+  },
+  {
+    "id": "composition-voting",
+    "title": "Composition Voting with User Topics",
+    "date": "2025-03-05",
+    "author": "Kevin Compton",
+    "summary": "By leveraging user specific topics, we can aggregate preferences under the Governance Topic to determine consensus.",
+    "content": "<p>The governance system architecture uses Hedera Consensus Service (HCS) through a multi-topic approach that separates individual preferences from collective decision-making.</p>",
+    "tags": ["governance", "HCS", "Composition"],
+    "shareImage": "social-share-composition.png",
+    "video": {
+      "src": "../public/composition-ui.mp4",
+      "alt": "Composition Voting Video",
+      "caption": "A video demonstration of the composition voting system."
     }
   }
 ] 
