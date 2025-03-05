@@ -109,9 +109,9 @@ function displayArticles(articles: Article[]): void {
   // Clear loading message
   container.innerHTML = '';
   
-  // Sort articles by date (newest first)
+  // Sort articles by date (oldest first)
   const sortedArticles = [...articles].sort((a, b) => 
-    new Date(b.date).getTime() - new Date(a.date).getTime()
+    new Date(a.date).getTime() - new Date(b.date).getTime()
   );
   
   sortedArticles.forEach(article => {
@@ -185,7 +185,7 @@ async function displaySingleArticle(articleId: string): Promise<void> {
     
     videoHtml = `
       <div class="video-section">
-        <video autoplay loop muted playsinline controls>
+        <video autoplay loop muted playsinline>
           <source src="${videoUrl}" type="video/mp4">
           Your browser does not support the video tag.
         </video>
